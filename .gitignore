@@ -1,1 +1,5 @@
 %projects%Django%Library%Axlibrary/
+
+# Byte-compiled / optimized / DLL files, pyc cache files
+__pycache__/
+*.py[cod]

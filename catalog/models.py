@@ -7,6 +7,7 @@ class Author(models.Model):
     last_name = models.CharField(max_length=50)
     first_name = models.CharField(max_length=50, blank=True)
     birth_year = models.IntegerField()
+    picture = models.ImageField(blank=True, null=True)
 
     def __str__(self):
         return f"Author(id={self.id}, last_name={self.last_name})"
