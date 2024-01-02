@@ -2,5 +2,10 @@
 
 {% block content %}
   <h1>Library Home</h1>
+
   <p>Welcome to Library! This is a personal purpose Django project.</p>
+  <p>
+    <a class="btn btn-dark" href="{% url 'book_listing' %}">View Books</a>
+    <a class="btn btn-dark" href="{% url 'author_listing' %}">View Authors</a>
+  </p>
 {% endblock %}
