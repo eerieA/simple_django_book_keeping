@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     "catalog",
     "people",
     "review",
+    "music",
 ]
 
 MIDDLEWARE = [
