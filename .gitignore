@@ -3,3 +3,6 @@
 # Byte-compiled / optimized / DLL files, pyc cache files
 __pycache__/
 *.py[cod]
+
+# Env
+local_settings.py
