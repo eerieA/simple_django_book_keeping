@@ -33,6 +33,7 @@ ALLOWED_HOSTS = ['127.0.0.1', 'localhost',]
 # Application definition
 
 INSTALLED_APPS = [
+    "grappelli",    # grappelli is taking over django admin, needs to take precedence
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -45,9 +46,12 @@ INSTALLED_APPS = [
     "people",
     "review",
     "music",
+    'rest_framework',
+    'debug_toolbar',
 ]
 
 MIDDLEWARE = [
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -128,6 +132,9 @@ USE_TZ = True
 STATIC_URL = "/static/"
 STATICFILES_DIRS = (BASE_DIR / "static",)
 
+MEDIA_ROOT = BASE_DIR.parent / 'uploads/Axlibrary'
+MEDIA_URL = '/media/'
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
@@ -136,8 +143,6 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # Account management
 LOGIN_REDIRECT_URL = "/"
 LOGOUT_REDIRECT_URL = "/"
-
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
-MEDIA_ROOT = BASE_DIR.parent / 'uploads/Axlibrary'
-MEDIA_URL = '/media/'
+INTERNAL_IPS = ["127.0.0.1",]

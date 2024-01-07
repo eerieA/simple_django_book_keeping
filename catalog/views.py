@@ -4,7 +4,12 @@ from django.contrib.auth.decorators import login_required
 
 from django.shortcuts import render, get_object_or_404, redirect
 
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from catalog import serializer
+
 from catalog.models import Book, Author
+from catalog.serializer import AuthorSerializer
 
 
 def book_listing(request):
@@ -49,3 +54,13 @@ def upload_author_photo(request, author_id):
     author.save()
 
     return redirect('author', author.id)
+
+@api_view(['GET'])
+def list_authors_api(request):
+    authors = Author.objects.all()
+    serializer = AuthorSerializer(authors, many=True)
+    content = {
+        "authors": serializer.data,
+    }
+
+    return Response(content)

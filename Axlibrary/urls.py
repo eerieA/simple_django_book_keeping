@@ -27,6 +27,8 @@ urlpatterns = [
     path(
         "favicon.ico", RedirectView.as_view(url="/static/favicon.ico")
     ),  # current ico does not work on Firefox
+    
+    path("grappelli/", include("grappelli.urls")),
     path("admin/", admin.site.urls),
     path("accounts/", include("django.contrib.auth.urls")),
     path("say_hello/", say_hello),
@@ -35,6 +37,10 @@ urlpatterns = [
     path("catalog/", include("catalog.urls")),
     path("people/", include("people.urls")),
     path("review/", include("review.urls")),
+    
+    path("api-auth/", include("rest_framework.urls")),
+
+    path("__debug__/", include("debug_toolbar.urls")),
 ]
 
 if settings.DEBUG:
